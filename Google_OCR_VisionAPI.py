@@ -42,7 +42,7 @@ def request_ocr(api_key, image_filenames):
                              headers={'Content-Type': 'application/json'})
     return response
 
-def india_regex(data):
+def plate_regex(data):
     print("Applying Regular Expression and deriving License Plate Number")
     match=re.match('[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[0-9]{0,1}[\s]*[0-9]{0,1}[\s]*[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*',data)
     if(re.match('[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[0-9]{0,1}[\s]*[0-9]{0,1}[\s]*[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[A-Z]{0,1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*[0-9]{1}[\s]*',data)):
@@ -82,4 +82,4 @@ if __name__ == '__main__':
                 """print("    Text:")"""
                 dat= t['description']
                 print("The complete OCR detected is " + dat)
-                india_regex(dat)
+                plate_regex(dat)
